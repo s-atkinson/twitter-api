@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.225">
+<testcase classname="Reusable Steps" name="Filtered stream add rule" time="0.076">
+<failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception"><![CDATA[Given an authorized twitter_v2 user.........................................undefined
+When I send a POST request to the endpoint with body........................skipped
+Then the response statuscode is 200.........................................skipped
+And the response body contains key: with value:.............................skipped
+]]></failure>
+</testcase>
+</testsuite>

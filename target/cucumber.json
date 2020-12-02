@@ -1,0 +1,65 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-12-02T00:09:28.871Z",
+        "line": 4,
+        "name": "Filtered stream add rule",
+        "description": "",
+        "id": "reusable-steps;filtered-stream-add-rule",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 5,
+            "name": "an authorized twitter_v2 user",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "I send a POST request to the endpoint with body",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "the response statuscode is 200",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "the response body contains key: with value:",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      }
+    ],
+    "name": "Reusable Steps",
+    "description": "  The steps in this file should be generic enough to be used in different projects",
+    "id": "reusable-steps",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/ReusableSteps.feature",
+    "tags": []
+  }
+]
