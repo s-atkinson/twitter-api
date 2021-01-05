@@ -18,7 +18,6 @@ public class CommonStepDefinitions {
     private CommonUtils commonUtils = new CommonUtils();
     private RequestSpecification reqSpec;
     private Response response;
-    private static Logger logger = LogManager.getLogger(CommonStepDefinitions.class);
 
     @Given("^an authorized " + QUOTABLE + " user$")
     public void getAuthorizedUser(String userType) {
