@@ -1,36 +1,19 @@
-#!/usr/bin/env groovy
-@Library('data-jenkins-shared-library') _
-
 pipeline {
-    // this runs this pipeline on any available jenkins agent
-    agent any
-    options {
-        // This only removes the UI message. The lightweight checkout is not available yet for GIT in multibranch pipeline.
-        skipDefaultCheckout true
-        buildDiscarder(logRotator(numToKeepStr: '3'))
-    }
-    stages {
-        stage('Checkout') {
-            steps {
-                deleteDir()
-                checkout scm
-            }
-        }
-        stage('Tests') {
-            steps {
-                parallel(
-                        Clicks_e2e: {
-                            sh "mvn clean verify -Dcucumber.options=\"--tags @common --plugin json:target/cucumber-report/clicks.json\" -Pjenkins-test-ac -e ${MAVEN_OPTS} "
-                        }
-                )
-            }
-        }
-    }
-    post {
-        always {
-            cucumber buildStatus: "UNSTABLE",
-                    fileIncludePattern: "**/*.json",
-                    jsonReportDirectory: 'target/cucumber-report/'
-        }
-    }
+   stage('Git checkout') {
+      git 'https://github.com/s-atkinson/twitter-api.git'
+   }
+   stage('Common') {
+        steps {
+            Common: {
+            sh "mvn clean verify -Dcucumber.options=\"--tags @common"
+         }
+   }
+   stage('Twitter') {
+        Twitter: {
+             sh "mvn clean verify -Dcucumber.options=\"--tags @common"
+         }
+   }
+   stage('Results') {
+      junit '**/target/failsafe-reports/*.xml'
+   }
 }
