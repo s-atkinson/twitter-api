@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "data": {
+        "id": "1336443999071195137",
+        "text": "API Test Tweet #6569",
+        "created_at": "2020-12-08T22:54:13.000Z",
+        "public_metrics": {
+          "retweet_count": 0,
+          "reply_count": 0,
+          "like_count": 0,
+          "quote_count": 0
+        },
+        "author_id": "749410536517988352"
+      }
+    }
+  ],
+  "required": [
+    "data"
+  ],
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "type": "object",
+      "title": "The data schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "id": "1336443999071195137",
+          "text": "API Test Tweet #6569",
+          "created_at": "2020-12-08T22:54:13.000Z",
+          "public_metrics": {
+            "retweet_count": 0,
+            "reply_count": 0,
+            "like_count": 0,
+            "quote_count": 0
+          },
+          "author_id": "749410536517988352"
+        }
+      ],
+      "required": [
+        "id",
+        "text",
+        "created_at",
+        "public_metrics",
+        "author_id"
+      ],
+      "properties": {
+        "id": {
+          "$id": "#/properties/data/properties/id",
+          "type": "string",
+          "title": "The id schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "1336443999071195137"
+          ]
+        },
+        "text": {
+          "$id": "#/properties/data/properties/text",
+          "type": "string",
+          "title": "The text schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "API Test Tweet #6569"
+          ]
+        },
+        "created_at": {
+          "$id": "#/properties/data/properties/created_at",
+          "type": "string",
+          "title": "The created_at schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "2020-12-08T22:54:13.000Z"
+          ]
+        },
+        "public_metrics": {
+          "$id": "#/properties/data/properties/public_metrics",
+          "type": "object",
+          "title": "The public_metrics schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "retweet_count": 0,
+              "reply_count": 0,
+              "like_count": 0,
+              "quote_count": 0
+            }
+          ],
+          "required": [
+            "retweet_count",
+            "reply_count",
+            "like_count",
+            "quote_count"
+          ],
+          "properties": {
+            "retweet_count": {
+              "$id": "#/properties/data/properties/public_metrics/properties/retweet_count",
+              "type": "integer",
+              "title": "The retweet_count schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                0
+              ]
+            },
+            "reply_count": {
+              "$id": "#/properties/data/properties/public_metrics/properties/reply_count",
+              "type": "integer",
+              "title": "The reply_count schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                0
+              ]
+            },
+            "like_count": {
+              "$id": "#/properties/data/properties/public_metrics/properties/like_count",
+              "type": "integer",
+              "title": "The like_count schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                0
+              ]
+            },
+            "quote_count": {
+              "$id": "#/properties/data/properties/public_metrics/properties/quote_count",
+              "type": "integer",
+              "title": "The quote_count schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                0
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "author_id": {
+          "$id": "#/properties/data/properties/author_id",
+          "type": "string",
+          "title": "The author_id schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "749410536517988352"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
