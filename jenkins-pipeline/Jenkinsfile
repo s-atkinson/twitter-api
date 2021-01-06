@@ -14,20 +14,18 @@ pipeline {
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
 
-            stage('Generate HTML report') {
-                    cucumber buildStatus: 'UNSTABLE',
-                            reportTitle: 'Test Report',
-                            fileIncludePattern: '**/*.json',
-                            trendsLimit: 10,
-                            classifications: [
-                                [
-                                    'key': 'Browser',
-                                    'value': 'Firefox'
-                                ]
-                            ]
-                }
-
             post {
+            always {
+                    cucumber buildStatus: 'UNSTABLE',
+                            failedFeaturesNumber: 1,
+                            failedScenariosNumber: 1,
+                            skippedStepsNumber: 1,
+                            failedStepsNumber: 1,
+                            reportTitle: 'Test Report',
+                            fileIncludePattern: '**/*cucumber-report.json',
+                            sortingMethod: 'ALPHABETICAL',
+                            trendsLimit: 100
+                }
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
                 success {
