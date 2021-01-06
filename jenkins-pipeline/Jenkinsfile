@@ -16,15 +16,20 @@ pipeline {
 
             post {
             always {
-                    cucumber buildStatus: 'UNSTABLE',
+                    cucumber
                             failedFeaturesNumber: 1,
                             failedScenariosNumber: 1,
                             skippedStepsNumber: 1,
                             failedStepsNumber: 1,
                             reportTitle: 'Test Report',
-                            fileIncludePattern: '**/*cucumber-report.json',
+                            fileIncludePattern: '**/target/cucumber.json',
                             sortingMethod: 'ALPHABETICAL',
-                            trendsLimit: 100
+                            trendsLimit: 100,
+                            classifications: [
+                                                [
+                                                    'key': 'Browser',
+                                                    'value': 'Firefox'
+                                                ]
                 }
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
