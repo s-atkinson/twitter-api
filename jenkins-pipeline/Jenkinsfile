@@ -16,7 +16,7 @@ pipeline {
 
             post {
             always {
-                    cucumber buildStatus: '',
+                    cucumber buildStatus: 'UNSTABLE',
                             failedFeaturesNumber: 1,
                             failedScenariosNumber: 1,
                             skippedStepsNumber: 1,
@@ -24,16 +24,14 @@ pipeline {
                             reportTitle: 'Test Report',
                             fileIncludePattern: '**/target/cucumber.json',
                             sortingMethod: 'ALPHABETICAL',
-                            trendsLimit: 100,
-
-
+                            trendsLimit: 100
+                }
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
-                // success {
-                //    junit '**//* target/surefire-reports/TEST-*.xml'
-                    //archiveArtifacts 'target *//*.jar'
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    //archiveArtifacts 'target/*.jar'
                 }
-
             }
         }
     }
