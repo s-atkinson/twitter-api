@@ -25,11 +25,7 @@ pipeline {
                             fileIncludePattern: '**/target/cucumber.json',
                             sortingMethod: 'ALPHABETICAL',
                             trendsLimit: 100,
-                            classifications: [
-                                                [
-                                                    'key': 'Browser',
-                                                    'value': 'Firefox'
-                                                ]
+
 
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
@@ -37,7 +33,7 @@ pipeline {
                     junit '**//* target/surefire-reports/TEST-*.xml'
                     //archiveArtifacts 'target *//*.jar'
                 } */
-
+}
             }
         }
     }
