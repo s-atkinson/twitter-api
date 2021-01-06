@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
         features = "src/test/java/features/",
         glue = "stepDefinitions",
         tags = "@twitter or @common",
-        plugin = {"json:target/cucumber.json"}
+        plugin = {"json:target/cucumber.json", "pretty"}
 )
 public class TestRunner {
 }
