@@ -21,7 +21,7 @@ The following features are not currently present should be added to the framewor
 #### Framework Disadvantages
 
 - Generic steps are arguably less descriptive in terms of BDD understanding
-- Setup with json payloads in mind (as opposed to xml/pojos)
+- Designed with mostly json payloads in mind (as opposed to xml/pojos)
 - Not feature complete (see 'Further Requirements Needed' section)
 
 
@@ -30,4 +30,5 @@ The following features are not currently present should be added to the framewor
 - Schema validator requires '"additionalProperties": false' set in file in order to compare the schema like for like
 - Rest assured requires 'scribejava' for authorizing OAuth 1.0 and 2.0
 - Newer versions of cucumber may not be compatible with the intellij cucumber feature file plugin hence version 4.6.0 is used
+- Creating pojos for payloads appears to take a lot more effort than writing and saving your payloads to a .json file
 
