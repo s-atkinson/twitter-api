@@ -915,3 +915,231 @@
 }.json
 2021-01-13 03:49:26 INFO  CommonUtils:261 - The response status 200 was verified
 2021-01-13 03:49:26 INFO  CommonUtils:284 - The response body contains key: meta.summary.deleted, with value: 1
+2021-01-13 04:15:09 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:09 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:09 INFO  CommonUtils:40 - Sending GET request to the tweets/1336443999071195137 endpoint
+2021-01-13 04:15:09 INFO  TwitterUtils:29 - Endpoint location is equal to tweets/1336443999071195137
+2021-01-13 04:15:09 INFO  CommonUtils:40 - Sending GET request to the tweets/1336443999071195137 endpoint
+2021-01-13 04:15:10 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:10 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:10 INFO  TwitterUtils:58 - Response string is: {"data":{"id":"1336443999071195137","text":"API Test Tweet #6569"}}
+2021-01-13 04:15:10 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:10 INFO  CommonUtils:40 - Sending GET request to the tweets/1336443999071195137 endpoint
+2021-01-13 04:15:10 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:10 INFO  TwitterUtils:29 - Endpoint location is equal to tweets
+2021-01-13 04:15:10 INFO  CommonUtils:105 - Sending GET request to the tweets endpoint with query parameters key: ids and value: 1336443999071195137
+2021-01-13 04:15:10 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:11 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:11 INFO  CommonUtils:304 - The response body matches the GetTweetResponse_queryParam file
+2021-01-13 04:15:11 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:11 INFO  TwitterStepDefinitions:40 - Updated body is equal to {"add":[{"value":"pojo test","tag":" this is a pojo test"}]}
+2021-01-13 04:15:11 INFO  TwitterUtils:29 - Endpoint location is equal to tweets/search/stream/rules
+2021-01-13 04:15:11 INFO  CommonUtils:89 - Sending POST request to the tweets/search/stream/rules endpoint with body {"add":[{"value":"pojo test","tag":" this is a pojo test"}]}.json
+2021-01-13 04:15:11 INFO  CommonUtils:284 - The response body contains key: data.id, with value: 1336443999071195137
+2021-01-13 04:15:11 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:11 INFO  CommonUtils:40 - Sending GET request to the tweets/1336443999071195137 endpoint
+2021-01-13 04:15:11 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:11 INFO  CommonUtils:304 - The response body matches the getTweetResponse file
+2021-01-13 04:15:12 INFO  CommonUtils:315 - getTweetResponse_Schema.json schema has been validated
+2021-01-13 04:15:12 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:12 INFO  CommonUtils:105 - Sending GET request to the tweets/1336443999071195137 endpoint with query parameters key: tweet.fields and value: public_metrics,author_id,created_at
+2021-01-13 04:15:12 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:12 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:12 INFO  CommonUtils:105 - Sending GET request to the tweets/1336443999071195137 endpoint with query parameters key: tweet.fields and value: public_metrics,author_id,created_at
+2021-01-13 04:15:12 INFO  CommonUtils:261 - The response status 201 was verified
+2021-01-13 04:15:12 INFO  TwitterUtils:29 - Endpoint location is equal to tweets/search/stream/rules
+2021-01-13 04:15:12 INFO  TwitterUtils:37 - Rule Id = 1349208346298101764
+2021-01-13 04:15:12 INFO  CommonUtils:89 - Sending POST request to the tweets/search/stream/rules endpoint with body {
+  "delete": {
+    "ids": [
+      "1349208346298101764"
+    ]
+  }
+}.json
+2021-01-13 04:15:13 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:13 INFO  CommonUtils:304 - The response body matches the getTweetResponse_tweetFields file
+2021-01-13 04:15:13 INFO  CommonUtils:315 - getTweetResponse_tweetFields_Schema.json schema has been validated
+2021-01-13 04:15:13 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:13 INFO  CommonUtils:105 - Sending GET request to the tweets/1336443999071195137 endpoint with query parameters key: tweet.fields&&expansions and value: public_metrics,author_id,created_at&&author_id
+2021-01-13 04:15:13 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:13 INFO  CommonUtils:266 - The response contained 'OK' in the status line
+2021-01-13 04:15:13 INFO  CommonUtils:273 - The list 'includes.users' with expected size of 1 matches actual size of 1
+2021-01-13 04:15:13 INFO  CommonUtils:288 - The response body contains keys: [data.public_metrics.retweet_count, data.author_id], with values: [0, 749410536517988352]
+2021-01-13 04:15:13 INFO  CommonUtils:310 - String 'like_count' is contained in the response
+2021-01-13 04:15:13 INFO  CommonUtils:36 - Retrieved authorized twitter_v1.1 user
+2021-01-13 04:15:13 INFO  CommonUtils:105 - Sending POST request to the statuses/update.json endpoint with query parameters key: status and value: Test Tweet 1
+2021-01-13 04:15:14 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:14 INFO  CommonUtils:284 - The response body contains key: text, with value: Test Tweet 1
+2021-01-13 04:15:14 INFO  CommonUtils:322 - Stored key = {id}, Stored value = 1349208356737703938
+2021-01-13 04:15:14 INFO  CommonUtils:333 - Returned stored value 1349208356737703938
+2021-01-13 04:15:14 INFO  CommonUtils:58 - Sending POST request to the statuses/destroy/{key}.json endpoint with path parameter 1349208356737703938
+2021-01-13 04:15:14 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:14 INFO  CommonUtils:284 - The response body contains key: meta.summary.deleted, with value: 1
+2021-01-13 04:15:14 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:14 INFO  CommonUtils:333 - Returned stored value 1349208356737703938
+2021-01-13 04:15:14 INFO  CommonUtils:58 - Sending GET request to the tweets/{key} endpoint with path parameter 1349208356737703938
+2021-01-13 04:15:15 INFO  CommonUtils:261 - The response status 404 was verified
+2021-01-13 04:15:15 INFO  CommonUtils:266 - The response contained 'HTTP/1.1 404 Not Found' in the status line
+2021-01-13 04:15:15 INFO  CommonUtils:36 - Retrieved authorized twitter_v1.1 user
+2021-01-13 04:15:15 INFO  CommonUtils:105 - Sending POST request to the statuses/update.json endpoint with query parameters key: status and value: Test Tweet 2
+2021-01-13 04:15:15 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:15 INFO  CommonUtils:310 - String 'id' is contained in the response
+2021-01-13 04:15:15 INFO  CommonUtils:322 - Stored key = {id}, Stored value = 1349208364170018817
+2021-01-13 04:15:15 INFO  CommonUtils:333 - Returned stored value 1349208364170018817
+2021-01-13 04:15:15 INFO  CommonUtils:124 - Sending POST request to the favorites/{key}.json endpoint with query parameters key: id and value: {id}
+2021-01-13 04:15:16 INFO  CommonUtils:288 - The response body contains keys: [favorite_count, favorited], with values: [1, true]
+2021-01-13 04:15:16 INFO  CommonUtils:333 - Returned stored value 1349208364170018817
+2021-01-13 04:15:16 INFO  CommonUtils:58 - Sending POST request to the statuses/destroy/{key}.json endpoint with path parameter 1349208364170018817
+2021-01-13 04:15:16 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:16 INFO  CommonUtils:266 - The response contained 'HTTP/1.1 200 OK' in the status line
+2021-01-13 04:15:16 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:16 INFO  CommonUtils:40 - Sending GET request to the tweets/search/stream/rules endpoint
+2021-01-13 04:15:17 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:17 INFO  CommonUtils:266 - The response contained 'OK' in the status line
+2021-01-13 04:15:17 INFO  CommonUtils:273 - The list 'data' with expected size of 2 matches actual size of 2
+2021-01-13 04:15:17 INFO  CommonUtils:284 - The response body contains key: data.value[0], with value: Cat in a hat
+2021-01-13 04:15:17 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:17 INFO  CommonUtils:345 - Returned body from the location: testData/requests/postRuleRequest.json
+2021-01-13 04:15:17 INFO  CommonUtils:74 - Sending POST request to the tweets/search/stream/rules endpoint with body postRuleRequest.json
+2021-01-13 04:15:19 INFO  CommonUtils:261 - The response status 201 was verified
+2021-01-13 04:15:19 INFO  CommonUtils:266 - The response contained 'HTTP/1.1 201 Created' in the status line
+2021-01-13 04:15:19 INFO  CommonUtils:284 - The response body contains key: meta.summary.created, with value: 1
+2021-01-13 04:15:19 INFO  CommonUtils:284 - The response body contains key: data.value, with value: [Test]
+2021-01-13 04:15:19 INFO  CommonUtils:322 - Stored key = {id}, Stored value = [1349208372755763200]
+2021-01-13 04:15:19 INFO  CommonUtils:345 - Returned body from the location: testData/requests/deleteRuleRequest.json
+2021-01-13 04:15:19 INFO  CommonUtils:333 - Returned stored value 1349208372755763200
+2021-01-13 04:15:19 INFO  CommonUtils:209 - Body updated with value 1349208372755763200 in place of {var1}
+2021-01-13 04:15:19 INFO  CommonUtils:157 - Sending POST request to the tweets/search/stream/rules endpoint with body deleteRuleRequest.json
+2021-01-13 04:15:21 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:21 INFO  CommonUtils:284 - The response body contains key: meta.summary.deleted, with value: 1
+2021-01-13 04:15:21 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:15:21 INFO  CommonUtils:345 - Returned body from the location: testData/requests/postRuleRequest.json
+2021-01-13 04:15:21 INFO  CommonUtils:141 - Sending POST request to the tweets/search/stream/rules endpoint with query parameters key: dry_run value: false and body postRuleRequest.json
+2021-01-13 04:15:22 INFO  CommonUtils:261 - The response status 201 was verified
+2021-01-13 04:15:22 INFO  CommonUtils:322 - Stored key = {id}, Stored value = [1349208389155491840]
+2021-01-13 04:15:22 INFO  CommonUtils:345 - Returned body from the location: testData/requests/postRuleRequest2.json
+2021-01-13 04:15:22 INFO  CommonUtils:141 - Sending POST request to the tweets/search/stream/rules endpoint with query parameters key: dry_run value: false and body postRuleRequest2.json
+2021-01-13 04:15:24 INFO  CommonUtils:261 - The response status 201 was verified
+2021-01-13 04:15:24 INFO  CommonUtils:322 - Stored key = {id2}, Stored value = [1349208395623108609]
+2021-01-13 04:15:24 INFO  CommonUtils:345 - Returned body from the location: testData/requests/deleteRuleRequest2.json
+2021-01-13 04:15:24 INFO  CommonUtils:333 - Returned stored value 1349208389155491840
+2021-01-13 04:15:24 INFO  CommonUtils:200 - Body updated with value 1349208389155491840 in place of {var1}
+2021-01-13 04:15:24 INFO  CommonUtils:333 - Returned stored value 1349208395623108609
+2021-01-13 04:15:24 INFO  CommonUtils:200 - Body updated with value 1349208395623108609 in place of {var2}
+2021-01-13 04:15:24 INFO  CommonUtils:174 - Sending POST request to the tweets/search/stream/rules endpoint with body deleteRuleRequest2.json
+2021-01-13 04:15:26 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:15:26 INFO  CommonUtils:284 - The response body contains key: meta.summary.deleted, with value: 2
+2021-01-13 04:21:53 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:21:53 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:21:53 INFO  CommonUtils:40 - Sending GET request to the tweets/1336443999071195137 endpoint
+2021-01-13 04:21:53 INFO  TwitterUtils:29 - Endpoint location is equal to tweets/1336443999071195137
+2021-01-13 04:21:53 INFO  CommonUtils:40 - Sending GET request to the tweets/1336443999071195137 endpoint
+2021-01-13 04:21:55 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:21:55 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:21:55 INFO  TwitterUtils:58 - Response string is: {"data":{"id":"1336443999071195137","text":"API Test Tweet #6569"}}
+2021-01-13 04:21:55 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:21:55 INFO  CommonUtils:40 - Sending GET request to the tweets/1336443999071195137 endpoint
+2021-01-13 04:21:56 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:21:56 INFO  TwitterUtils:29 - Endpoint location is equal to tweets
+2021-01-13 04:21:56 INFO  CommonUtils:105 - Sending GET request to the tweets endpoint with query parameters key: ids and value: 1336443999071195137
+2021-01-13 04:21:56 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:21:56 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:21:56 INFO  CommonUtils:304 - The response body matches the GetTweetResponse_queryParam file
+2021-01-13 04:21:56 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:21:56 INFO  TwitterStepDefinitions:40 - Updated body is equal to {"add":[{"value":"pojo test","tag":" this is a pojo test"}]}
+2021-01-13 04:21:56 INFO  TwitterUtils:29 - Endpoint location is equal to tweets/search/stream/rules
+2021-01-13 04:21:56 INFO  CommonUtils:89 - Sending POST request to the tweets/search/stream/rules endpoint with body {"add":[{"value":"pojo test","tag":" this is a pojo test"}]}.json
+2021-01-13 04:21:56 INFO  CommonUtils:284 - The response body contains key: data.id, with value: 1336443999071195137
+2021-01-13 04:21:56 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:21:56 INFO  CommonUtils:40 - Sending GET request to the tweets/1336443999071195137 endpoint
+2021-01-13 04:21:57 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:21:57 INFO  CommonUtils:304 - The response body matches the getTweetResponse file
+2021-01-13 04:21:57 INFO  CommonUtils:315 - getTweetResponse_Schema.json schema has been validated
+2021-01-13 04:21:57 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:21:57 INFO  CommonUtils:105 - Sending GET request to the tweets/1336443999071195137 endpoint with query parameters key: tweet.fields and value: public_metrics,author_id,created_at
+2021-01-13 04:21:58 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:21:58 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:21:58 INFO  CommonUtils:105 - Sending GET request to the tweets/1336443999071195137 endpoint with query parameters key: tweet.fields and value: public_metrics,author_id,created_at
+2021-01-13 04:21:58 INFO  CommonUtils:261 - The response status 201 was verified
+2021-01-13 04:21:58 INFO  TwitterUtils:29 - Endpoint location is equal to tweets/search/stream/rules
+2021-01-13 04:21:58 INFO  TwitterUtils:37 - Rule Id = 1349210047184826371
+2021-01-13 04:21:58 INFO  CommonUtils:89 - Sending POST request to the tweets/search/stream/rules endpoint with body {
+  "delete": {
+    "ids": [
+      "1349210047184826371"
+    ]
+  }
+}.json
+2021-01-13 04:21:58 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:21:58 INFO  CommonUtils:304 - The response body matches the getTweetResponse_tweetFields file
+2021-01-13 04:21:58 INFO  CommonUtils:315 - getTweetResponse_tweetFields_Schema.json schema has been validated
+2021-01-13 04:21:58 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:21:58 INFO  CommonUtils:105 - Sending GET request to the tweets/1336443999071195137 endpoint with query parameters key: tweet.fields&&expansions and value: public_metrics,author_id,created_at&&author_id
+2021-01-13 04:21:58 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:21:58 INFO  CommonUtils:266 - The response contained 'OK' in the status line
+2021-01-13 04:21:59 INFO  CommonUtils:273 - The list 'includes.users' with expected size of 1 matches actual size of 1
+2021-01-13 04:21:59 INFO  CommonUtils:288 - The response body contains keys: [data.public_metrics.retweet_count, data.author_id], with values: [0, 749410536517988352]
+2021-01-13 04:21:59 INFO  CommonUtils:310 - String 'like_count' is contained in the response
+2021-01-13 04:21:59 INFO  CommonUtils:36 - Retrieved authorized twitter_v1.1 user
+2021-01-13 04:21:59 INFO  CommonUtils:105 - Sending POST request to the statuses/update.json endpoint with query parameters key: status and value: Test Tweet 1
+2021-01-13 04:21:59 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:21:59 INFO  CommonUtils:284 - The response body contains key: text, with value: Test Tweet 1
+2021-01-13 04:21:59 INFO  CommonUtils:322 - Stored key = {id}, Stored value = 1349210057444106241
+2021-01-13 04:21:59 INFO  CommonUtils:333 - Returned stored value 1349210057444106241
+2021-01-13 04:21:59 INFO  CommonUtils:58 - Sending POST request to the statuses/destroy/{key}.json endpoint with path parameter 1349210057444106241
+2021-01-13 04:22:00 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:22:00 INFO  CommonUtils:284 - The response body contains key: meta.summary.deleted, with value: 1
+2021-01-13 04:22:00 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:22:00 INFO  CommonUtils:333 - Returned stored value 1349210057444106241
+2021-01-13 04:22:00 INFO  CommonUtils:58 - Sending GET request to the tweets/{key} endpoint with path parameter 1349210057444106241
+2021-01-13 04:22:00 INFO  CommonUtils:261 - The response status 404 was verified
+2021-01-13 04:22:00 INFO  CommonUtils:266 - The response contained 'HTTP/1.1 404 Not Found' in the status line
+2021-01-13 04:22:00 INFO  CommonUtils:36 - Retrieved authorized twitter_v1.1 user
+2021-01-13 04:22:00 INFO  CommonUtils:105 - Sending POST request to the statuses/update.json endpoint with query parameters key: status and value: Test Tweet 2
+2021-01-13 04:22:01 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:22:01 INFO  CommonUtils:310 - String 'id' is contained in the response
+2021-01-13 04:22:01 INFO  CommonUtils:322 - Stored key = {id}, Stored value = 1349210064914182144
+2021-01-13 04:22:01 INFO  CommonUtils:333 - Returned stored value 1349210064914182144
+2021-01-13 04:22:01 INFO  CommonUtils:124 - Sending POST request to the favorites/{key}.json endpoint with query parameters key: id and value: {id}
+2021-01-13 04:22:01 INFO  CommonUtils:288 - The response body contains keys: [favorite_count, favorited], with values: [1, true]
+2021-01-13 04:22:01 INFO  CommonUtils:333 - Returned stored value 1349210064914182144
+2021-01-13 04:22:01 INFO  CommonUtils:58 - Sending POST request to the statuses/destroy/{key}.json endpoint with path parameter 1349210064914182144
+2021-01-13 04:22:02 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:22:02 INFO  CommonUtils:266 - The response contained 'HTTP/1.1 200 OK' in the status line
+2021-01-13 04:22:02 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:22:02 INFO  CommonUtils:40 - Sending GET request to the tweets/search/stream/rules endpoint
+2021-01-13 04:22:02 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:22:02 INFO  CommonUtils:266 - The response contained 'OK' in the status line
+2021-01-13 04:22:02 INFO  CommonUtils:273 - The list 'data' with expected size of 2 matches actual size of 2
+2021-01-13 04:22:02 INFO  CommonUtils:284 - The response body contains key: data.value[0], with value: Cat in a hat
+2021-01-13 04:22:02 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:22:02 INFO  CommonUtils:345 - Returned body from the location: testData/requests/postRuleRequest.json
+2021-01-13 04:22:02 INFO  CommonUtils:74 - Sending POST request to the tweets/search/stream/rules endpoint with body postRuleRequest.json
+2021-01-13 04:22:04 INFO  CommonUtils:261 - The response status 201 was verified
+2021-01-13 04:22:04 INFO  CommonUtils:266 - The response contained 'HTTP/1.1 201 Created' in the status line
+2021-01-13 04:22:04 INFO  CommonUtils:284 - The response body contains key: meta.summary.created, with value: 1
+2021-01-13 04:22:04 INFO  CommonUtils:284 - The response body contains key: data.value, with value: [Test]
+2021-01-13 04:22:04 INFO  CommonUtils:322 - Stored key = {id}, Stored value = [1349210073428586498]
+2021-01-13 04:22:04 INFO  CommonUtils:345 - Returned body from the location: testData/requests/deleteRuleRequest.json
+2021-01-13 04:22:04 INFO  CommonUtils:333 - Returned stored value 1349210073428586498
+2021-01-13 04:22:04 INFO  CommonUtils:209 - Body updated with value 1349210073428586498 in place of {var1}
+2021-01-13 04:22:04 INFO  CommonUtils:157 - Sending POST request to the tweets/search/stream/rules endpoint with body deleteRuleRequest.json
+2021-01-13 04:22:06 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:22:06 INFO  CommonUtils:284 - The response body contains key: meta.summary.deleted, with value: 1
+2021-01-13 04:22:06 INFO  CommonUtils:36 - Retrieved authorized twitter_v2 user
+2021-01-13 04:22:06 INFO  CommonUtils:345 - Returned body from the location: testData/requests/postRuleRequest.json
+2021-01-13 04:22:06 INFO  CommonUtils:141 - Sending POST request to the tweets/search/stream/rules endpoint with query parameters key: dry_run value: false and body postRuleRequest.json
+2021-01-13 04:22:08 INFO  CommonUtils:261 - The response status 201 was verified
+2021-01-13 04:22:08 INFO  CommonUtils:322 - Stored key = {id}, Stored value = [1349210087496306688]
+2021-01-13 04:22:08 INFO  CommonUtils:345 - Returned body from the location: testData/requests/postRuleRequest2.json
+2021-01-13 04:22:08 INFO  CommonUtils:141 - Sending POST request to the tweets/search/stream/rules endpoint with query parameters key: dry_run value: false and body postRuleRequest2.json
+2021-01-13 04:22:09 INFO  CommonUtils:261 - The response status 201 was verified
+2021-01-13 04:22:09 INFO  CommonUtils:322 - Stored key = {id2}, Stored value = [1349210095075418113]
+2021-01-13 04:22:09 INFO  CommonUtils:345 - Returned body from the location: testData/requests/deleteRuleRequest2.json
+2021-01-13 04:22:09 INFO  CommonUtils:333 - Returned stored value 1349210087496306688
+2021-01-13 04:22:09 INFO  CommonUtils:200 - Body updated with value 1349210087496306688 in place of {var1}
+2021-01-13 04:22:09 INFO  CommonUtils:333 - Returned stored value 1349210095075418113
+2021-01-13 04:22:09 INFO  CommonUtils:200 - Body updated with value 1349210095075418113 in place of {var2}
+2021-01-13 04:22:09 INFO  CommonUtils:174 - Sending POST request to the tweets/search/stream/rules endpoint with body deleteRuleRequest2.json
+2021-01-13 04:22:10 INFO  CommonUtils:261 - The response status 200 was verified
+2021-01-13 04:22:10 INFO  CommonUtils:284 - The response body contains key: meta.summary.deleted, with value: 2
