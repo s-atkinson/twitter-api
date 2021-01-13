@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,17 +25,18 @@ public class CommonUtils {
     private String updatedBody = null;
     public Response response;
     private RequestSpecifications httpRequest = new RequestSpecifications();
+    private RequestSpecification reqSpec;
     private ObjectMapper mapper = new ObjectMapper();
     private Map<String, String> storedValue = new HashMap<>();
     private static Logger logger = LogManager.getLogger(CommonUtils.class);
 
     public void getAuthorizedUser(String userType) {
         httpRequest.getHostAPI(userType);
+        reqSpec = httpRequest.getRequestSpec();
         logger.info("Retrieved authorized " + userType + " user");
-        CommonState.setRequestSpecification(httpRequest.getRequestSpec());
     }
 
-    public void requestWithEndpoint(String requestType, RequestSpecification reqSpec, String endpoint) {
+    public void requestWithEndpoint(String requestType, String endpoint) {
         logger.info("Sending " + requestType + " request to the " + endpoint + " endpoint");
         if (requestType.equalsIgnoreCase("GET")) {
             response = given().spec(reqSpec).when().get(endpoint).then().log().all().extract().response();
@@ -49,10 +49,9 @@ public class CommonUtils {
         } else if (requestType.equalsIgnoreCase("OPTIONS")) {
             response = given().spec(reqSpec).when().options(endpoint).then().log().all().extract().response();
         }
-        CommonState.setResponse(response);
     }
 
-    public void requestWithPathParam(String requestType, RequestSpecification reqSpec, String endpoint, String pathValue) {
+    public void requestWithPathParam(String requestType, String endpoint, String pathValue) {
         if (pathValue.startsWith("{") && pathValue.endsWith("}")) {
             pathValue = getStoredValue(pathValue);
         }
@@ -68,10 +67,9 @@ public class CommonUtils {
         } else if (requestType.equalsIgnoreCase("OPTIONS")) {
             response = given().spec(reqSpec).pathParam("key", pathValue).when().options(endpoint).then().log().all().extract().response();
         }
-        CommonState.setResponse(response);
     }
 
-    public void requestWithBody(String requestType, RequestSpecification reqSpec, String endpoint, String body) {
+    public void requestWithBody(String requestType, String endpoint, String body) {
         String payload = readFile(body, ".json");
         logger.info("Sending " + requestType + " request to the " + endpoint + " endpoint with body " + body + ".json");
         if (requestType.equalsIgnoreCase("GET")) {
@@ -85,10 +83,24 @@ public class CommonUtils {
         } else if (requestType.equalsIgnoreCase("OPTIONS")) {
             response = given().spec(reqSpec).body(payload).when().options(endpoint).then().log().all().extract().response();
         }
-        CommonState.setResponse(response);
     }
 
-    public void requestWithQueryParams(String requestType, RequestSpecification reqSpec, String endpoint, String key, String value) {
+    public void requestWithJsonString(String requestType, String endpoint, String json) {
+        logger.info("Sending " + requestType + " request to the " + endpoint + " endpoint with body " + json + ".json");
+        if (requestType.equalsIgnoreCase("GET")) {
+            response = given().spec(reqSpec).body(json).when().get(endpoint).then().log().all().extract().response();
+        } else if (requestType.equalsIgnoreCase("POST")) {
+            response = given().spec(reqSpec).body(json).when().post(endpoint).then().log().all().extract().response();
+        } else if (requestType.equalsIgnoreCase("PUT")) {
+            response = given().spec(reqSpec).body(json).when().put(endpoint).then().log().all().extract().response();
+        } else if (requestType.equalsIgnoreCase("DELETE")) {
+            response = given().spec(reqSpec).body(json).when().delete(endpoint).then().log().all().extract().response();
+        } else if (requestType.equalsIgnoreCase("OPTIONS")) {
+            response = given().spec(reqSpec).body(json).when().options(endpoint).then().log().all().extract().response();
+        }
+    }
+
+    public void requestWithQueryParams(String requestType, String endpoint, String key, String value) {
         HashMap<String, String> params = (HashMap<String, String>) getParams(key, value);
         logger.info("Sending " + requestType + " request to the " + endpoint + " endpoint with query parameters key: " + key + " and value: " + value);
         if (requestType.equalsIgnoreCase("GET")) {
@@ -102,10 +114,9 @@ public class CommonUtils {
         } else if (requestType.equalsIgnoreCase("OPTIONS")) {
             response = given().spec(reqSpec).queryParams(params).when().options(endpoint).then().log().all().extract().response();
         }
-        CommonState.setResponse(response);
     }
 
-    public void requestWithPathParamQueryParams(String requestType, RequestSpecification reqSpec, String endpoint, String pathValue, String key, String value) {
+    public void requestWithPathParamQueryParams(String requestType, String endpoint, String pathValue, String key, String value) {
         if (pathValue.startsWith("{") && pathValue.endsWith("}")) {
             pathValue = getStoredValue(pathValue);
         }
@@ -122,10 +133,9 @@ public class CommonUtils {
         } else if (requestType.equalsIgnoreCase("OPTIONS")) {
             response = given().spec(reqSpec).pathParam("key", pathValue).queryParams(params).when().options(endpoint).then().log().all().extract().response();
         }
-        CommonState.setResponse(response);
     }
 
-    public void requestWithQueryParamsAndBody(String requestType, RequestSpecification reqSpec, String endpoint, String key, String value, String body) {
+    public void requestWithQueryParamsAndBody(String requestType, String endpoint, String key, String value, String body) {
         HashMap<String, String> params = (HashMap<String, String>) getParams(key, value);
         String payload = readFile(body, ".json");
         logger.info("Sending " + requestType + " request to the " + endpoint + " endpoint with query parameters key: " + key + " value: " + value + " and body " + body + ".json");
@@ -140,10 +150,9 @@ public class CommonUtils {
         } else if (requestType.equalsIgnoreCase("OPTIONS")) {
             response = given().spec(reqSpec).queryParams(params).body(payload).when().options(endpoint).then().log().all().extract().response();
         }
-        CommonState.setResponse(response);
     }
 
-    public void requestWithValueInBody(String requestType, RequestSpecification reqSpec, String endpoint, String value, String body) {
+    public void requestWithValueInBody(String requestType, String endpoint, String value, String body) {
         replaceBodyStrings(value, body);
         logger.info("Sending " + requestType + " request to the " + endpoint + " endpoint with body " + body + ".json");
         if (requestType.equalsIgnoreCase("GET")) {
@@ -157,10 +166,9 @@ public class CommonUtils {
         } else if (requestType.equalsIgnoreCase("OPTIONS")) {
             response = given().spec(reqSpec).body(updatedBody).when().options(endpoint).then().log().all().extract().response();
         }
-        CommonState.setResponse(response);
     }
 
-    public void requestWithQueryParamsAndValueInBody(String requestType, RequestSpecification reqSpec, String endpoint, String paramKey, String paramValue, String value, String body) {
+    public void requestWithQueryParamsAndValueInBody(String requestType, String endpoint, String paramKey, String paramValue, String value, String body) {
         replaceBodyStrings(value, body);
         HashMap<String, String> params = (HashMap<String, String>) getParams(paramKey, paramValue);
         logger.info("Sending " + requestType + " request to the " + endpoint + " endpoint with body " + body + ".json");
@@ -175,7 +183,6 @@ public class CommonUtils {
         } else if (requestType.equalsIgnoreCase("OPTIONS")) {
             response = given().spec(reqSpec).queryParams(params).body(updatedBody).when().options(endpoint).then().log().all().extract().response();
         }
-        CommonState.setResponse(response);
     }
 
     private void replaceBodyStrings(String value, String body) {
@@ -249,17 +256,17 @@ public class CommonUtils {
         return params;
     }
 
-    public void verifyStatusCode(Response response, int statusCode) {
+    public void verifyStatusCode(int statusCode) {
         assertEquals(statusCode, response.statusCode());
         logger.info("The response status " + statusCode + " was verified");
     }
 
-    public void verifyStatusMessage(Response response, String statusMessage) {
+    public void verifyStatusMessage(String statusMessage) {
         assert (response.getStatusLine().contains(statusMessage));
         logger.info("The response contained '" + statusMessage + "' in the status line");
     }
 
-    public void verifyListSize(Response response, String list, int expectedSize) throws Exception {
+    public void verifyListSize(String list, int expectedSize) throws Exception {
         if (response.jsonPath().get(list) != null) {
             int actualSize = response.jsonPath().getList(list).size();
             assertEquals(expectedSize, actualSize);
@@ -267,7 +274,7 @@ public class CommonUtils {
         } else throw new NoSuchFieldException("Cannot match list " + list + " to a key in the response body");
     }
 
-    public void verifyResponseKeyValuePairs(Response response, String key, String value) {
+    public void verifyResponseKeyValuePairs(String key, String value) {
         String responseBody = response.asString();
         JsonPath verifyPairs = new JsonPath(responseBody);
         String[] keys = key.split("&&");
@@ -288,7 +295,7 @@ public class CommonUtils {
             throw new IllegalArgumentException("Incompatible combination of key/value pairs specified in request query parameters");
     }
 
-    public void verifyResponseBody(Response response, String body) throws IOException {
+    public void verifyResponseBody(String body) throws IOException {
         String actualBody = response.asString();
         String expectedBody = new String(Files.readAllBytes(Paths.get("src/test/resources/testData/responses/" + body + ".json")));
         JsonNode actual = mapper.readTree(actualBody);
@@ -297,18 +304,18 @@ public class CommonUtils {
         logger.info("The response body matches the " + body + " file");
     }
 
-    public void verifyResponseBodyString(Response response, String string) {
+    public void verifyResponseBodyString(String string) {
         String responseBody = response.asString();
         Assert.assertTrue(responseBody.contains(string));
         logger.info("String '" + string + "' is contained in the response");
     }
 
-    public void verifyResponseSchema(Response response, String schema) {
+    public void verifyResponseSchema(String schema) {
         response.then().assertThat().body(matchesJsonSchemaInClasspath("testData/schemas/" + schema + ".json"));
         logger.info(schema + ".json schema has been validated");
     }
 
-    public void storeResponseValue(Response response, String key, String storedResponseKey) {
+    public void storeResponseValue(String key, String storedResponseKey) {
         String responseBody = response.asString();
         String responseValue = new JsonPath(responseBody).get(key).toString();
         storedValue.put(storedResponseKey, responseValue);

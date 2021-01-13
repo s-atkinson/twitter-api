@@ -1,4 +1,4 @@
-Feature: Reusable Steps
+Feature: Common Steps
   The steps in this file should be generic enough to be used in different projects
 
   @common
