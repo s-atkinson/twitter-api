@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Test') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/s-atkinson/twitter-api.git'
+
+                // Run Maven on a Unix agent.
+                sh "mvn clean test -Dcucumber.options=\"--tags @common,@twitter\""
+
+                // To run Maven on a Windows agent, use
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+
+            post {
+            always {
+                    cucumber buildStatus: 'UNSTABLE',
+                            failedFeaturesNumber: 1,
+                            failedScenariosNumber: 1,
+                            skippedStepsNumber: 1,
+                            failedStepsNumber: 1,
+                            reportTitle: 'Test Report',
+                            fileIncludePattern: '**/target/cucumber.json',
+                            sortingMethod: 'ALPHABETICAL',
+                            trendsLimit: 100
+                }
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    //archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+    }
+}

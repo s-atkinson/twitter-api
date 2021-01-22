@@ -1,0 +1,14 @@
+{
+  "data": {
+    "id": "1336443999071195137",
+    "text": "API Test Tweet #6569",
+    "created_at": "2020-12-08T22:54:13.000Z",
+    "public_metrics": {
+      "retweet_count": 0,
+      "reply_count": 0,
+      "like_count": 0,
+      "quote_count": 0
+    },
+    "author_id": "749410536517988352"
+  }
+}

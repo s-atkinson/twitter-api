@@ -1,0 +1,523 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-01-22T10:13:15.319Z",
+        "line": 50,
+        "name": "Post tweet - delete tweet - get tweet",
+        "description": "",
+        "id": "common-steps;post-tweet---delete-tweet---get-tweet",
+        "after": [
+          {
+            "result": {
+              "duration": 352265,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.tearDownTweet(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 20390,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.tearDownRule(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1198681407,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "an authorized \"twitter_v1.1\" user",
+            "match": {
+              "arguments": [
+                {
+                  "val": "twitter_v1.1",
+                  "offset": 15
+                }
+              ],
+              "location": "CommonStepDefinitions.getAuthorizedUser(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2395345743,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "I send a \"POST\" request to the \"statuses/update.json\" endpoint with query parameters key:\"status\" value:\"Test Tweet 1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "POST",
+                  "offset": 10
+                },
+                {
+                  "val": "statuses/update.json",
+                  "offset": 32
+                },
+                {
+                  "val": "status",
+                  "offset": 90
+                },
+                {
+                  "val": "Test Tweet 1",
+                  "offset": 105
+                }
+              ],
+              "location": "CommonStepDefinitions.requestWithQueryParams(String,String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2235058,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "the response status code is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 28
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyStatusCode(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 510613310,
+              "status": "passed"
+            },
+            "line": 54,
+            "name": "the response body contains key:\"text\" with value:\"Test Tweet 1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "text",
+                  "offset": 32
+                },
+                {
+                  "val": "Test Tweet 1",
+                  "offset": 50
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyResponseKeyValuePairs(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 14716225,
+              "status": "passed"
+            },
+            "line": 55,
+            "name": "store the response value with key:\"id\" as \"{id}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "id",
+                  "offset": 35
+                },
+                {
+                  "val": "{id}",
+                  "offset": 43
+                }
+              ],
+              "location": "CommonStepDefinitions.storeResponseValue(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 499736775,
+              "status": "passed"
+            },
+            "line": 56,
+            "name": "I send a \"POST\" request to the \"statuses/destroy/{key}.json\" endpoint with path parameter \"{id}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "POST",
+                  "offset": 10
+                },
+                {
+                  "val": "statuses/destroy/{key}.json",
+                  "offset": 32
+                },
+                {
+                  "val": "{id}",
+                  "offset": 91
+                }
+              ],
+              "location": "CommonStepDefinitions.requestWithPathParam(String,String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 436107,
+              "status": "passed"
+            },
+            "line": 57,
+            "name": "the response status code is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 28
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyStatusCode(int)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 786156026,
+              "status": "passed"
+            },
+            "line": 58,
+            "name": "I send a \"GET\" request to the \"tweets/{key}\" endpoint with path parameter \"{id}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GET",
+                  "offset": 10
+                },
+                {
+                  "val": "tweets/{key}",
+                  "offset": 31
+                },
+                {
+                  "val": "{id}",
+                  "offset": 75
+                }
+              ],
+              "location": "CommonStepDefinitions.requestWithPathParam(String,String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 411346,
+              "status": "passed"
+            },
+            "line": 59,
+            "name": "the response status code is 404",
+            "match": {
+              "arguments": [
+                {
+                  "val": "404",
+                  "offset": 28
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyStatusCode(int)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 328981,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "the response status message contains \"HTTP/1.1 404 Not Found\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "HTTP/1.1 404 Not Found",
+                  "offset": 38
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyStatusMessage(String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@common"
+          },
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-01-22T10:13:20.750Z",
+        "line": 85,
+        "name": "Post rule - delete rule",
+        "description": "",
+        "id": "common-steps;post-rule---delete-rule",
+        "after": [
+          {
+            "result": {
+              "duration": 118693,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.tearDownTweet(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 20801,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.tearDownRule(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1085043,
+              "status": "passed"
+            },
+            "line": 86,
+            "name": "an authorized \"twitter_v2\" user",
+            "match": {
+              "arguments": [
+                {
+                  "val": "twitter_v2",
+                  "offset": 15
+                }
+              ],
+              "location": "CommonStepDefinitions.getAuthorizedUser(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1432503001,
+              "status": "passed"
+            },
+            "line": 87,
+            "name": "I send a \"POST\" request to the \"tweets/search/stream/rules\" endpoint with body \"postRuleRequest\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "POST",
+                  "offset": 10
+                },
+                {
+                  "val": "tweets/search/stream/rules",
+                  "offset": 32
+                },
+                {
+                  "val": "postRuleRequest",
+                  "offset": 80
+                }
+              ],
+              "location": "CommonStepDefinitions.requestWithBody(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 541368,
+              "status": "passed"
+            },
+            "line": 88,
+            "name": "the response status code is 201",
+            "match": {
+              "arguments": [
+                {
+                  "val": "201",
+                  "offset": 28
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyStatusCode(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 330102,
+              "status": "passed"
+            },
+            "line": 89,
+            "name": "the response status message contains \"HTTP/1.1 201 Created\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "HTTP/1.1 201 Created",
+                  "offset": 38
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyStatusMessage(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10123375,
+              "status": "passed"
+            },
+            "line": 90,
+            "name": "the response body contains key:\"meta.summary.created\" with value:\"1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "meta.summary.created",
+                  "offset": 32
+                },
+                {
+                  "val": "1",
+                  "offset": 66
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyResponseKeyValuePairs(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 9280835,
+              "status": "passed"
+            },
+            "line": 91,
+            "name": "the response body contains key:\"data.value\" with value:\"[Test]\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data.value",
+                  "offset": 32
+                },
+                {
+                  "val": "[Test]",
+                  "offset": 56
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyResponseKeyValuePairs(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8850353,
+              "status": "passed"
+            },
+            "line": 92,
+            "name": "store the response value with key:\"data.id\" as \"{id}\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "data.id",
+                  "offset": 35
+                },
+                {
+                  "val": "{id}",
+                  "offset": 48
+                }
+              ],
+              "location": "CommonStepDefinitions.storeResponseValue(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1504598820,
+              "status": "passed"
+            },
+            "line": 93,
+            "name": "I send a \"POST\" request to the \"tweets/search/stream/rules\" endpoint with value \"{id}\" in body \"deleteRuleRequest\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "POST",
+                  "offset": 10
+                },
+                {
+                  "val": "tweets/search/stream/rules",
+                  "offset": 32
+                },
+                {
+                  "val": "{id}",
+                  "offset": 81
+                },
+                {
+                  "val": "deleteRuleRequest",
+                  "offset": 96
+                }
+              ],
+              "location": "CommonStepDefinitions.requestWithValueInBody(String,String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 843656,
+              "status": "passed"
+            },
+            "line": 94,
+            "name": "the response status code is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 28
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyStatusCode(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 8705786,
+              "status": "passed"
+            },
+            "line": 95,
+            "name": "the response body contains key:\"meta.summary.deleted\" with value:\"1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "meta.summary.deleted",
+                  "offset": 32
+                },
+                {
+                  "val": "1",
+                  "offset": 66
+                }
+              ],
+              "location": "CommonStepDefinitions.verifyResponseKeyValuePairs(String,String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@common"
+          },
+          {
+            "name": "@test"
+          }
+        ]
+      }
+    ],
+    "name": "Common Steps",
+    "description": "  The steps in this file should be generic enough to be used in different projects",
+    "id": "common-steps",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/CommonSteps.feature",
+    "tags": []
+  }
+]
